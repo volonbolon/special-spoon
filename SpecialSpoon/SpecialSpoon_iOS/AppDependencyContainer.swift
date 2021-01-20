@@ -19,6 +19,7 @@ struct AppDependencyContainer {
         let mainViewController = MainViewController(model: model,
                                                     userInterface: mainView,
                                                     searchUseCaseFactory: self)
+        model.uxResponder = mainViewController
         let rootViewController = RootViewController(mainViewController: mainViewController)
         
         return rootViewController

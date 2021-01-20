@@ -10,15 +10,16 @@ import Combine
 
 /// This is our source of truth. Here we have the results, and we expose them to be consumed by other parts of the app
 class SearchViewModel: ObservableObject {
-    private var subscriptions = Set<AnyCancellable>()
-    private let apiClient: APIClient
+    weak var uxResponder: MainUXResponder?
     
     @Published var error: APIClientError? = nil
     @Published var searchResults: [SearchResult] = []
     @Published var receivingPage = false
+    
     private var expectMorePages = true
     private var searchTerm: String?
-    
+    private var subscriptions = Set<AnyCancellable>()
+    private let apiClient: APIClient
     private var offset = 0
     
     init(apiClient: APIClient = iTunesAPIClient()) {

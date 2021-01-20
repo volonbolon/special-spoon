@@ -47,15 +47,9 @@ class MainViewController: NiblessViewController {
 }
 
 extension MainViewController { // MARK: - Helpers
-    @IBAction func presentNewSearch() {
-        let useCase = searchUseCaseFactory.makeSearchUseCase(model: model,
-                                                             presentingViewController: self)
-        useCase.start()
-    }
-    
     private func populateNavBar() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search,
-                                                            target: self,
+                                                            target: model.uxResponder,
                                                             action: #selector(presentNewSearch))
         
         let historyTitle = NSLocalizedString("Saved Searches",
@@ -96,5 +90,21 @@ extension MainViewController { // MARK: - Helpers
                 self.userInterface.reloadData()
             }
             .store(in: &subscriptions)
+    }
+}
+
+extension MainViewController: MainUXResponder {
+    func presentNewSearch() {
+        let useCase = searchUseCaseFactory.makeSearchUseCase(model: model,
+                                                             presentingViewController: self)
+        useCase.start()
+    }
+    
+    func presentSavedSearches() {
+        
+    }
+    
+    func playButtonTappedSample(sender: UIButton) {
+        
     }
 }

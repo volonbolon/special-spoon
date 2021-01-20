@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class RootViewController: NiblessNavigationController {
+class RootViewController: NiblessNavigationController {
     init(mainViewController: MainViewController) {
         super.init()
 

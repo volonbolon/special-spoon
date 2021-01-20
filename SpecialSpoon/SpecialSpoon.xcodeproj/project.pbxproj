@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		79B11F0C25B8E25A00295C6B /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B11F0B25B8E25A00295C6B /* UseCase.swift */; };
+		79B11F1325B8E2D200295C6B /* SearchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B11F1225B8E2D200295C6B /* SearchUseCase.swift */; };
 		79CE4D5225B8C17D009DD899 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CE4D5125B8C17D009DD899 /* SearchViewModel.swift */; };
 		79CE4D5825B8C257009DD899 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CE4D5725B8C257009DD899 /* APIClient.swift */; };
 		79CE4D5D25B8C4FA009DD899 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CE4D5C25B8C4FA009DD899 /* SearchResult.swift */; };
@@ -61,6 +63,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		79B11F0B25B8E25A00295C6B /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
+		79B11F1225B8E2D200295C6B /* SearchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUseCase.swift; sourceTree = "<group>"; };
 		79CE4D5125B8C17D009DD899 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		79CE4D5725B8C257009DD899 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		79CE4D5C25B8C4FA009DD899 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
@@ -113,9 +117,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		79B11F0F25B8E2A100295C6B /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				79B11F1025B8E2AA00295C6B /* Use Case */,
+			);
+			path = Commands;
+			sourceTree = "<group>";
+		};
+		79B11F1025B8E2AA00295C6B /* Use Case */ = {
+			isa = PBXGroup;
+			children = (
+				79B11F1125B8E2B400295C6B /* Search Use Case */,
+			);
+			path = "Use Case";
+			sourceTree = "<group>";
+		};
+		79B11F1125B8E2B400295C6B /* Search Use Case */ = {
+			isa = PBXGroup;
+			children = (
+				79B11F1225B8E2D200295C6B /* SearchUseCase.swift */,
+			);
+			path = "Search Use Case";
+			sourceTree = "<group>";
+		};
 		79CE4D4D25B8C13F009DD899 /* SpecialSpoonKit */ = {
 			isa = PBXGroup;
 			children = (
+				79CE4D6A25B8E13D009DD899 /* Use Case */,
 				79CE4D5B25B8C4EB009DD899 /* Models */,
 				79CE4D5525B8C23B009DD899 /* Repositories */,
 				79CE4D5025B8C16C009DD899 /* View Models */,
@@ -154,6 +183,14 @@
 				79CE4D5C25B8C4FA009DD899 /* SearchResult.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		79CE4D6A25B8E13D009DD899 /* Use Case */ = {
+			isa = PBXGroup;
+			children = (
+				79B11F0B25B8E25A00295C6B /* UseCase.swift */,
+			);
+			path = "Use Case";
 			sourceTree = "<group>";
 		};
 		79F001B025B8B8C400613136 = {
@@ -221,6 +258,7 @@
 		79F001F325B8B94F00613136 /* SpecialSpoon_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				79B11F0F25B8E2A100295C6B /* Commands */,
 				79F0021E25B8BB5200613136 /* Views */,
 				79F0020B25B8BA7B00613136 /* View Controllers */,
 				79F001F425B8B97C00613136 /* AppDependencyContainer.swift */,
@@ -412,12 +450,14 @@
 				79F0021525B8BACD00613136 /* NiblessNavigationController.swift in Sources */,
 				79F001FF25B8BA0200613136 /* NiblessViewController.swift in Sources */,
 				79F0020D25B8BA9000613136 /* RootViewController.swift in Sources */,
+				79B11F1325B8E2D200295C6B /* SearchUseCase.swift in Sources */,
 				79CE4D5825B8C257009DD899 /* APIClient.swift in Sources */,
 				79F0020725B8BA1900613136 /* NiblessView.swift in Sources */,
 				79CE4D5225B8C17D009DD899 /* SearchViewModel.swift in Sources */,
 				79CE4D6325B8C56C009DD899 /* iTunesAPIClient.swift in Sources */,
 				79F001F525B8B97C00613136 /* AppDependencyContainer.swift in Sources */,
 				79F001BF25B8B8C400613136 /* SceneDelegate.swift in Sources */,
+				79B11F0C25B8E25A00295C6B /* UseCase.swift in Sources */,
 				79CE4D5D25B8C4FA009DD899 /* SearchResult.swift in Sources */,
 				79F0021A25B8BAF800613136 /* MainViewController.swift in Sources */,
 			);

@@ -13,15 +13,18 @@ class MainViewController: NiblessViewController {
     private let model: SearchViewModel
     private var subscriptions = Set<AnyCancellable>()
     private let searchUseCaseFactory: SearchUseCaseUseCaseFactory
+    private let mainUseCaseFactory: MainViewUseCaseFactory
     private let dataSource: UITableViewDataSource
     private let delegate: UITableViewDelegate
     
     init(model: SearchViewModel,
          userInterface: MainView,
-         searchUseCaseFactory: SearchUseCaseUseCaseFactory) {
+         searchUseCaseFactory: SearchUseCaseUseCaseFactory,
+         mainUseCaseFactory: MainViewUseCaseFactory) {
         self.model = model
         self.userInterface = userInterface
         self.searchUseCaseFactory = searchUseCaseFactory
+        self.mainUseCaseFactory = mainUseCaseFactory
         
         guard let ds = userInterface.dataSource,
               let del = userInterface.delegate else {
@@ -104,7 +107,15 @@ extension MainViewController: MainUXResponder {
         
     }
     
-    func playButtonTappedSample(sender: UIButton) {
-        
+    func playSampleButtonTapped(sender: UIButton) {
+        let correctedPoint = sender.convert(sender.bounds.origin,
+                                            to: userInterface)
+        if let indexPath = userInterface.indexPathForRow(at: correctedPoint) {
+            let searchResult = model.searchResults[indexPath.row]
+            if let url = URL(string: searchResult.previewUrl) {
+                let useCase = mainUseCaseFactory.makePlaySampleUseCase(url: url)
+                useCase.start()
+            }
+        }
     }
 }

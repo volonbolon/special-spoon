@@ -31,21 +31,11 @@ class MainDataSource: NSObject, UITableViewDataSource {
         if let mainCell = cell as? MainTableViewCell {
             let searchResult = model.searchResults[indexPath.row]
             mainCell.nameLabel.text = searchResult.trackName
-            mainCell.playButton.addTarget(self,
-                                          action: #selector(playButtonWrapper(sender:)),
+            mainCell.playButton.addTarget(model.uxResponder,
+                                          action: #selector(MainUXResponder.playSampleButtonTapped(sender:)),
                                           for: .touchUpInside)
         }
         
         return cell
-    }
-    
-    // Since we choose to expose SearchViewModel in the protocol
-    // we cannot flag methods as `objc`
-    // thus, we are wrapping the call.
-    @IBAction private func playButtonWrapper(sender: UIButton) {
-//        guard let responder = model.uxResponder else {
-//            return
-//        }
-//        responder.playButtonTappedSample(sender: sender)
     }
 }

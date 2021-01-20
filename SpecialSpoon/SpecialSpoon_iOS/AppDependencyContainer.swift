@@ -18,7 +18,8 @@ struct AppDependencyContainer {
         
         let mainViewController = MainViewController(model: model,
                                                     userInterface: mainView,
-                                                    searchUseCaseFactory: self)
+                                                    searchUseCaseFactory: self,
+                                                    mainUseCaseFactory: self)
         model.uxResponder = mainViewController
         let rootViewController = RootViewController(mainViewController: mainViewController)
         
@@ -30,6 +31,16 @@ extension AppDependencyContainer: SearchUseCaseUseCaseFactory {
     func makeSearchUseCase(model: SearchViewModel,
                            presentingViewController: UIViewController) -> UseCase {
         let useCase = SearchUseCase(model: model, presentingViewController: presentingViewController)
+        return useCase
+    }
+}
+
+extension AppDependencyContainer: MainViewUseCaseFactory {
+    /// Produces a use case that plays a sample track from a URL
+    /// - Parameter url: url pointing to the sample track
+    /// - Returns: use case fully inatiated. The caller needs to call start whenerver ready
+    func makePlaySampleUseCase(url: URL) -> UseCase {
+        let useCase = PlaySampleUseCase(url: url)
         return useCase
     }
 }

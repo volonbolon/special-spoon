@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,8 @@
 		79F0021525B8BACD00613136 /* NiblessNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F0021425B8BACD00613136 /* NiblessNavigationController.swift */; };
 		79F0021A25B8BAF800613136 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F0021925B8BAF800613136 /* MainViewController.swift */; };
 		79F0022025B8BB6000613136 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F0021F25B8BB6000613136 /* MainView.swift */; };
+		79F0022925B8BC9800613136 /* VolonbolonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 79F0022825B8BC9800613136 /* VolonbolonKit */; };
+		79F0022A25B8BC9800613136 /* VolonbolonKit in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 79F0022825B8BC9800613136 /* VolonbolonKit */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,20 @@
 			remoteInfo = SpecialSpoon;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		79F0022B25B8BC9800613136 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				79F0022A25B8BC9800613136 /* VolonbolonKit in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		79F001B925B8B8C400613136 /* SpecialSpoon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpecialSpoon.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79F0022925B8BC9800613136 /* VolonbolonKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,12 +218,16 @@
 				79F001B525B8B8C400613136 /* Sources */,
 				79F001B625B8B8C400613136 /* Frameworks */,
 				79F001B725B8B8C400613136 /* Resources */,
+				79F0022B25B8BC9800613136 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = SpecialSpoon;
+			packageProductDependencies = (
+				79F0022825B8BC9800613136 /* VolonbolonKit */,
+			);
 			productName = SpecialSpoon;
 			productReference = 79F001B925B8B8C400613136 /* SpecialSpoon.app */;
 			productType = "com.apple.product-type.application";
@@ -278,6 +299,9 @@
 				Base,
 			);
 			mainGroup = 79F001B025B8B8C400613136;
+			packageReferences = (
+				79F0022725B8BC9800613136 /* XCRemoteSwiftPackageReference "super-octo-potato" */,
+			);
 			productRefGroup = 79F001BA25B8B8C400613136 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -647,6 +671,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		79F0022725B8BC9800613136 /* XCRemoteSwiftPackageReference "super-octo-potato" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/volonbolon/super-octo-potato";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		79F0022825B8BC9800613136 /* VolonbolonKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79F0022725B8BC9800613136 /* XCRemoteSwiftPackageReference "super-octo-potato" */;
+			productName = VolonbolonKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 79F001B125B8B8C400613136 /* Project object */;
 }

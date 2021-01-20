@@ -9,12 +9,17 @@
 /* Begin PBXBuildFile section */
 		79F001BD25B8B8C400613136 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F001BC25B8B8C400613136 /* AppDelegate.swift */; };
 		79F001BF25B8B8C400613136 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F001BE25B8B8C400613136 /* SceneDelegate.swift */; };
-		79F001C125B8B8C400613136 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F001C025B8B8C400613136 /* ViewController.swift */; };
-		79F001C425B8B8C400613136 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79F001C225B8B8C400613136 /* Main.storyboard */; };
 		79F001C625B8B8C600613136 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79F001C525B8B8C600613136 /* Assets.xcassets */; };
 		79F001C925B8B8C600613136 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79F001C725B8B8C600613136 /* LaunchScreen.storyboard */; };
 		79F001D425B8B8C700613136 /* SpecialSpoonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F001D325B8B8C700613136 /* SpecialSpoonTests.swift */; };
 		79F001DF25B8B8C700613136 /* SpecialSpoonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F001DE25B8B8C700613136 /* SpecialSpoonUITests.swift */; };
+		79F001F525B8B97C00613136 /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F001F425B8B97C00613136 /* AppDependencyContainer.swift */; };
+		79F001FF25B8BA0200613136 /* NiblessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F001FE25B8BA0200613136 /* NiblessViewController.swift */; };
+		79F0020725B8BA1900613136 /* NiblessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F0020625B8BA1900613136 /* NiblessView.swift */; };
+		79F0020D25B8BA9000613136 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F0020C25B8BA9000613136 /* RootViewController.swift */; };
+		79F0021525B8BACD00613136 /* NiblessNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F0021425B8BACD00613136 /* NiblessNavigationController.swift */; };
+		79F0021A25B8BAF800613136 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F0021925B8BAF800613136 /* MainViewController.swift */; };
+		79F0022025B8BB6000613136 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F0021F25B8BB6000613136 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +43,6 @@
 		79F001B925B8B8C400613136 /* SpecialSpoon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpecialSpoon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79F001BC25B8B8C400613136 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79F001BE25B8B8C400613136 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		79F001C025B8B8C400613136 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		79F001C325B8B8C400613136 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		79F001C525B8B8C600613136 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79F001C825B8B8C600613136 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79F001CA25B8B8C600613136 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +52,13 @@
 		79F001DA25B8B8C700613136 /* SpecialSpoonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpecialSpoonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		79F001DE25B8B8C700613136 /* SpecialSpoonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialSpoonUITests.swift; sourceTree = "<group>"; };
 		79F001E025B8B8C700613136 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79F001F425B8B97C00613136 /* AppDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencyContainer.swift; sourceTree = "<group>"; };
+		79F001FE25B8BA0200613136 /* NiblessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessViewController.swift; sourceTree = "<group>"; };
+		79F0020625B8BA1900613136 /* NiblessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessView.swift; sourceTree = "<group>"; };
+		79F0020C25B8BA9000613136 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		79F0021425B8BACD00613136 /* NiblessNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessNavigationController.swift; sourceTree = "<group>"; };
+		79F0021925B8BAF800613136 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		79F0021F25B8BB6000613136 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				79F001BB25B8B8C400613136 /* SpecialSpoon */,
+				79F001F325B8B94F00613136 /* SpecialSpoon_iOS */,
+				79F001FC25B8B9D700613136 /* SpecialSpoon_UIKit */,
 				79F001D225B8B8C700613136 /* SpecialSpoonTests */,
 				79F001DD25B8B8C700613136 /* SpecialSpoonUITests */,
 				79F001BA25B8B8C400613136 /* Products */,
@@ -99,10 +111,7 @@
 		79F001BB25B8B8C400613136 /* SpecialSpoon */ = {
 			isa = PBXGroup;
 			children = (
-				79F001BC25B8B8C400613136 /* AppDelegate.swift */,
-				79F001BE25B8B8C400613136 /* SceneDelegate.swift */,
-				79F001C025B8B8C400613136 /* ViewController.swift */,
-				79F001C225B8B8C400613136 /* Main.storyboard */,
+				79F001EF25B8B8EA00613136 /* Delegates */,
 				79F001C525B8B8C600613136 /* Assets.xcassets */,
 				79F001C725B8B8C600613136 /* LaunchScreen.storyboard */,
 				79F001CA25B8B8C600613136 /* Info.plist */,
@@ -126,6 +135,60 @@
 				79F001E025B8B8C700613136 /* Info.plist */,
 			);
 			path = SpecialSpoonUITests;
+			sourceTree = "<group>";
+		};
+		79F001EF25B8B8EA00613136 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				79F001BC25B8B8C400613136 /* AppDelegate.swift */,
+				79F001BE25B8B8C400613136 /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		79F001F325B8B94F00613136 /* SpecialSpoon_iOS */ = {
+			isa = PBXGroup;
+			children = (
+				79F0021E25B8BB5200613136 /* Views */,
+				79F0020B25B8BA7B00613136 /* View Controllers */,
+				79F001F425B8B97C00613136 /* AppDependencyContainer.swift */,
+			);
+			path = SpecialSpoon_iOS;
+			sourceTree = "<group>";
+		};
+		79F001FC25B8B9D700613136 /* SpecialSpoon_UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				79F001FD25B8B9E900613136 /* Nibless Components */,
+			);
+			path = SpecialSpoon_UIKit;
+			sourceTree = "<group>";
+		};
+		79F001FD25B8B9E900613136 /* Nibless Components */ = {
+			isa = PBXGroup;
+			children = (
+				79F001FE25B8BA0200613136 /* NiblessViewController.swift */,
+				79F0020625B8BA1900613136 /* NiblessView.swift */,
+				79F0021425B8BACD00613136 /* NiblessNavigationController.swift */,
+			);
+			path = "Nibless Components";
+			sourceTree = "<group>";
+		};
+		79F0020B25B8BA7B00613136 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				79F0020C25B8BA9000613136 /* RootViewController.swift */,
+				79F0021925B8BAF800613136 /* MainViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		79F0021E25B8BB5200613136 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				79F0021F25B8BB6000613136 /* MainView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +296,6 @@
 			files = (
 				79F001C925B8B8C600613136 /* LaunchScreen.storyboard in Resources */,
 				79F001C625B8B8C600613136 /* Assets.xcassets in Resources */,
-				79F001C425B8B8C400613136 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +320,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79F001C125B8B8C400613136 /* ViewController.swift in Sources */,
 				79F001BD25B8B8C400613136 /* AppDelegate.swift in Sources */,
+				79F0022025B8BB6000613136 /* MainView.swift in Sources */,
+				79F0021525B8BACD00613136 /* NiblessNavigationController.swift in Sources */,
+				79F001FF25B8BA0200613136 /* NiblessViewController.swift in Sources */,
+				79F0020D25B8BA9000613136 /* RootViewController.swift in Sources */,
+				79F0020725B8BA1900613136 /* NiblessView.swift in Sources */,
+				79F001F525B8B97C00613136 /* AppDependencyContainer.swift in Sources */,
 				79F001BF25B8B8C400613136 /* SceneDelegate.swift in Sources */,
+				79F0021A25B8BAF800613136 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +364,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		79F001C225B8B8C400613136 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				79F001C325B8B8C400613136 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		79F001C725B8B8C600613136 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

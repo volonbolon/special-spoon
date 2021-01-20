@@ -13,6 +13,8 @@ class MainViewController: NiblessViewController {
     private let model: SearchViewModel
     private var subscriptions = Set<AnyCancellable>()
     private let searchUseCaseFactory: SearchUseCaseUseCaseFactory
+    private let dataSource: UITableViewDataSource
+    private let delegate: UITableViewDelegate
     
     init(model: SearchViewModel,
          userInterface: MainView,
@@ -20,6 +22,13 @@ class MainViewController: NiblessViewController {
         self.model = model
         self.userInterface = userInterface
         self.searchUseCaseFactory = searchUseCaseFactory
+        
+        guard let ds = userInterface.dataSource,
+              let del = userInterface.delegate else {
+            fatalError("Unable to coompose table view")
+        }
+        self.dataSource = ds
+        self.delegate = del
         
         super.init()
     }
@@ -57,6 +66,9 @@ extension MainViewController { // MARK: - Helpers
                                                            action: #selector(presentNewSearch))
     }
     
+    
+    /// the observable publishers in the model are our source of truth.
+    /// When they update, we are informed, and we can update our views
     private func bindModel() {
         model.$error
             .receive(on: DispatchQueue.main)
@@ -81,8 +93,7 @@ extension MainViewController { // MARK: - Helpers
         model.$searchResults
             .receive(on: DispatchQueue.main)
             .sink { (results) in
-                print(results)
-//                self.userInterface.reloadData()
+                self.userInterface.reloadData()
             }
             .store(in: &subscriptions)
     }

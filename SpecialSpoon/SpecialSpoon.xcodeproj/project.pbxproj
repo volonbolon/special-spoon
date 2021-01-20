@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		79B11F0C25B8E25A00295C6B /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B11F0B25B8E25A00295C6B /* UseCase.swift */; };
 		79B11F1325B8E2D200295C6B /* SearchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B11F1225B8E2D200295C6B /* SearchUseCase.swift */; };
+		79B11F1725B8E85000295C6B /* NiblessTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B11F1625B8E85000295C6B /* NiblessTableView.swift */; };
+		79B11F1C25B8E88400295C6B /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B11F1B25B8E88400295C6B /* MainTableViewCell.swift */; };
+		79B11F2225B8E9B400295C6B /* MainDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B11F2125B8E9B400295C6B /* MainDataSource.swift */; };
+		79B11F2825B8EA5100295C6B /* MainDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B11F2725B8EA5100295C6B /* MainDelegate.swift */; };
 		79CE4D5225B8C17D009DD899 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CE4D5125B8C17D009DD899 /* SearchViewModel.swift */; };
 		79CE4D5825B8C257009DD899 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CE4D5725B8C257009DD899 /* APIClient.swift */; };
 		79CE4D5D25B8C4FA009DD899 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CE4D5C25B8C4FA009DD899 /* SearchResult.swift */; };
@@ -65,6 +69,10 @@
 /* Begin PBXFileReference section */
 		79B11F0B25B8E25A00295C6B /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
 		79B11F1225B8E2D200295C6B /* SearchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUseCase.swift; sourceTree = "<group>"; };
+		79B11F1625B8E85000295C6B /* NiblessTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessTableView.swift; sourceTree = "<group>"; };
+		79B11F1B25B8E88400295C6B /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		79B11F2125B8E9B400295C6B /* MainDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDataSource.swift; sourceTree = "<group>"; };
+		79B11F2725B8EA5100295C6B /* MainDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDelegate.swift; sourceTree = "<group>"; };
 		79CE4D5125B8C17D009DD899 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		79CE4D5725B8C257009DD899 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		79CE4D5C25B8C4FA009DD899 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
@@ -139,6 +147,32 @@
 				79B11F1225B8E2D200295C6B /* SearchUseCase.swift */,
 			);
 			path = "Search Use Case";
+			sourceTree = "<group>";
+		};
+		79B11F1A25B8E87200295C6B /* Main View */ = {
+			isa = PBXGroup;
+			children = (
+				79F0021F25B8BB6000613136 /* MainView.swift */,
+				79B11F1B25B8E88400295C6B /* MainTableViewCell.swift */,
+			);
+			path = "Main View";
+			sourceTree = "<group>";
+		};
+		79B11F1F25B8E97200295C6B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				79B11F2025B8E9AB00295C6B /* Main */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		79B11F2025B8E9AB00295C6B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				79B11F2125B8E9B400295C6B /* MainDataSource.swift */,
+				79B11F2725B8EA5100295C6B /* MainDelegate.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		79CE4D4D25B8C13F009DD899 /* SpecialSpoonKit */ = {
@@ -258,6 +292,7 @@
 		79F001F325B8B94F00613136 /* SpecialSpoon_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				79B11F1F25B8E97200295C6B /* Controllers */,
 				79B11F0F25B8E2A100295C6B /* Commands */,
 				79F0021E25B8BB5200613136 /* Views */,
 				79F0020B25B8BA7B00613136 /* View Controllers */,
@@ -280,6 +315,7 @@
 				79F001FE25B8BA0200613136 /* NiblessViewController.swift */,
 				79F0020625B8BA1900613136 /* NiblessView.swift */,
 				79F0021425B8BACD00613136 /* NiblessNavigationController.swift */,
+				79B11F1625B8E85000295C6B /* NiblessTableView.swift */,
 			);
 			path = "Nibless Components";
 			sourceTree = "<group>";
@@ -295,7 +331,7 @@
 		79F0021E25B8BB5200613136 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				79F0021F25B8BB6000613136 /* MainView.swift */,
+				79B11F1A25B8E87200295C6B /* Main View */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -449,7 +485,10 @@
 				79F0022025B8BB6000613136 /* MainView.swift in Sources */,
 				79F0021525B8BACD00613136 /* NiblessNavigationController.swift in Sources */,
 				79F001FF25B8BA0200613136 /* NiblessViewController.swift in Sources */,
+				79B11F1725B8E85000295C6B /* NiblessTableView.swift in Sources */,
 				79F0020D25B8BA9000613136 /* RootViewController.swift in Sources */,
+				79B11F1C25B8E88400295C6B /* MainTableViewCell.swift in Sources */,
+				79B11F2825B8EA5100295C6B /* MainDelegate.swift in Sources */,
 				79B11F1325B8E2D200295C6B /* SearchUseCase.swift in Sources */,
 				79CE4D5825B8C257009DD899 /* APIClient.swift in Sources */,
 				79F0020725B8BA1900613136 /* NiblessView.swift in Sources */,
@@ -460,6 +499,7 @@
 				79B11F0C25B8E25A00295C6B /* UseCase.swift in Sources */,
 				79CE4D5D25B8C4FA009DD899 /* SearchResult.swift in Sources */,
 				79F0021A25B8BAF800613136 /* MainViewController.swift in Sources */,
+				79B11F2225B8E9B400295C6B /* MainDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

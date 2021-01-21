@@ -12,15 +12,15 @@ struct Results: Codable {
 }
 
 struct SearchResult: Codable, Identifiable {
-    let id: Int
+    let trackId: Int
     let trackName: String
     let previewUrl: String
     let collectionViewUrl: String
+    let artistName: String
+    let collectionName: String
+    let artworkUrl100: String
     
-    private enum CodingKeys: String, CodingKey {
-        case id = "trackId"
-        case trackName
-        case previewUrl
-        case collectionViewUrl
+    var id: Int {
+        trackId
     }
 }

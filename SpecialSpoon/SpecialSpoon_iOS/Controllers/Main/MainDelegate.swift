@@ -24,6 +24,7 @@ class MainDelegate: NSObject, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let searchResult = model.searchResults[indexPath.row]
         guard let url = URL(string: searchResult.collectionViewUrl) else {
             return

@@ -52,7 +52,9 @@ class SearchViewModel: ObservableObject {
             return
         }
         receivingPage = true
-        apiClient.searchForTerm(term, offset: offset, pageSize: 20)
+        apiClient.searchForTerm(term,
+                                offset: offset,
+                                pageSize: 20)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 if case .failure(let error) = completion {
@@ -73,7 +75,6 @@ class SearchViewModel: ObservableObject {
             }
             .store(in: &subscriptions)
     }
-    
     
     /// Populates the internal results store with content provided by the caller
     /// - Parameter results: An array of search results

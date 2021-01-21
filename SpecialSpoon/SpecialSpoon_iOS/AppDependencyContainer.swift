@@ -9,11 +9,13 @@ import UIKit
 
 /// Dependency injection engine
 struct AppDependencyContainer {
-    
+    /// we can customise at this point the client we want to use
+    /// for testing purposes, we can inject a mock, for instance.
     var remoteAPI: APIClient {
         return iTunesAPIClient()
     }
     
+    /// This can be customised as well for different versions of the app.
     var makeSavedSearchPool: LocalRepository {
         return SavedSearchLocalRepository()
     }

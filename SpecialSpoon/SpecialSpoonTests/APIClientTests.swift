@@ -7,7 +7,6 @@
 
 import XCTest
 import Combine
-import VolonbolonKit
 
 @testable import SpecialSpoon
 
@@ -17,7 +16,7 @@ struct APIManagerMock: APIClient {
                        pageSize: Int) -> AnyPublisher<[SearchResult], APIClientError> {
         let searchResult = SearchResult(id: 308345539,
                                         trackName: "In utero",
-                                        previewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/Music/b9/6d/cc/mzm.ydaoahqv.aac.p.m4a")
+                                        previewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/Music/b9/6d/cc/mzm.ydaoahqv.aac.p.m4a", collectionViewUrl: "https://music.apple.com/us/album/in-utero/308345440?i=308345539&uo=4")
         
         return Just([searchResult])
             .setFailureType(to: APIClientError.self)
@@ -27,12 +26,6 @@ struct APIManagerMock: APIClient {
 
 class SearchViewModelTests: XCTestCase {
     var subscriptions = [AnyCancellable]()
-
-    override func setUpWithError() throws {
-    }
-
-    override func tearDownWithError() throws {
-    }
 
     func testAPI() {
         let apiClient = APIManagerMock()

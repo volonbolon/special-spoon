@@ -36,6 +36,11 @@ struct AppDependencyContainer {
     
     /// This can be customised as well for different versions of the app.
     var makeSavedSearchPool: LocalRepository {
+        #if DEBUG
+        if CommandLine.arguments.contains("--uitesting") {
+            return SavedSearchLocalMockRepository()
+        }
+        #endif
         return SavedSearchLocalRepository()
     }
     

@@ -37,6 +37,27 @@ class SpecialSpoonUITests: XCTestCase {
         let numberOfCells = tablesQuery.children(matching: .cell).count
         XCTAssertEqual(numberOfCells, 2)
     }
+    
+    func testSavedSearches() throws {
+        app.launch()
+        
+        app.navigationBars["SpecialSpoon.MainView"].buttons["Saved Searches"].tap()
+
+        let savedTablesQuery = app.tables
+        let numberOfCells = savedTablesQuery.children(matching: .cell).count
+        XCTAssertEqual(numberOfCells, 1)
+        
+        let inUteroCell = savedTablesQuery.cells.element(boundBy: 0)
+        inUteroCell.tap()
+        
+        let mainTablesQuery = app.tables["Search Results"]
+        let numberOfCellsInMain = mainTablesQuery.children(matching: .cell).count
+        XCTAssertEqual(numberOfCellsInMain, 2)
+        
+        let firstMainCell = mainTablesQuery.cells.element(boundBy: 0)
+        let nameLabel = firstMainCell.staticTexts.element(matching: .any, identifier: "name label").label
+        XCTAssertEqual(nameLabel, "SAVED>>In utero", "\(nameLabel) should be 'SAVED>>In utero'")
+    }
 
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {

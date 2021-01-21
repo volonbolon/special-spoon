@@ -29,6 +29,8 @@ class MainViewController: NiblessViewController {
         self.mainUseCaseFactory = mainUseCaseFactory
         self.mainDependencyFactory = mainDependencyFactory
         
+        self.userInterface.accessibilityLabel = "Search Results"
+        
         guard let ds = userInterface.dataSource,
               let del = userInterface.delegate else {
             fatalError("Unable to coompose table view")

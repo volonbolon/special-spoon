@@ -12,6 +12,7 @@ class MainTableViewCell: UITableViewCell {
     
     var nameLabel: UILabel = {
         let label = UILabel(frame: .zero)
+        label.accessibilityIdentifier = "name label"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 18)
         label.numberOfLines = 0
@@ -20,6 +21,7 @@ class MainTableViewCell: UITableViewCell {
     
     var artistLabel: UILabel = {
         let label = UILabel(frame: .zero)
+        label.accessibilityIdentifier = "artist label"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 12)
         return label

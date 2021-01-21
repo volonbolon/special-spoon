@@ -27,6 +27,8 @@ class MainView: NiblessTableView {
          delegate: UITableViewDelegate) {
         super.init(frame: .zero, style: .plain)
         
+        
+        
         self.register(MainTableViewCell.self,
                       forCellReuseIdentifier: MainView.cellIdentifier)
         

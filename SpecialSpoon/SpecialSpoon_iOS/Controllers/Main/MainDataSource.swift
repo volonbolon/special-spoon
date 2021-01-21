@@ -26,6 +26,26 @@ class MainDataSource: NSObject, UITableViewDataSource {
         model.searchResults.count
     }
     
+    private func processImage(artwork: String,
+                              cell: MainTableViewCell,
+                              tableView: UITableView,
+                              indexPath: IndexPath) {
+        if let cachedImage = imageCache.object(forKey: artwork as NSString) {
+            cell.artworkImageView.image = cachedImage
+        } else {
+            if let url = URL(string: artwork) {
+                UIImage.imageFromURL(url) { (image) in
+                    if let image = image {
+                        self.imageCache.setObject(image, forKey: artwork as NSString)
+                    }
+                    if let cell = tableView.cellForRow(at: indexPath) as? MainTableViewCell {
+                        cell.artworkImageView.image = image
+                    }
+                }
+            }
+        }
+    }
+    
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MainView.cellIdentifier,
                                                  for: indexPath)
@@ -33,23 +53,14 @@ class MainDataSource: NSObject, UITableViewDataSource {
         if let mainCell = cell as? MainTableViewCell {
             let searchResult = model.searchResults[indexPath.row]
             mainCell.nameLabel.text = searchResult.trackName
+            mainCell.artistLabel.text = searchResult.artistName
             mainCell.playButton.addTarget(model.uxResponder,
                                           action: #selector(MainUXResponder.playSampleButtonTapped(sender:)),
                                           for: .touchUpInside)
-            if let cachedImage = imageCache.object(forKey: searchResult.artworkUrl100 as NSString) {
-                mainCell.artworkImageView.image = cachedImage
-            } else {
-                if let url = URL(string: searchResult.artworkUrl100) {
-                    UIImage.imageFromURL(url) { (image) in
-                        if let image = image {
-                            self.imageCache.setObject(image, forKey: searchResult.artworkUrl100 as NSString)
-                        }
-                        if let cell = tableView.cellForRow(at: indexPath) as? MainTableViewCell {
-                            cell.artworkImageView.image = image
-                        }
-                    }
-                }
-            }
+            processImage(artwork: searchResult.artworkUrl100,
+                         cell: mainCell,
+                         tableView: tableView,
+                         indexPath: indexPath)
         }
         
         return cell

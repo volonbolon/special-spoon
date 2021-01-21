@@ -13,7 +13,15 @@ class MainTableViewCell: UITableViewCell {
     var nameLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.boldSystemFont(ofSize: 18)
         label.numberOfLines = 0
+        return label
+    }()
+    
+    var artistLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 12)
         return label
     }()
     
@@ -51,6 +59,7 @@ extension MainTableViewCell { // MARK: - Helpers
         contentView.addSubview(nameLabel)
         contentView.addSubview(playButton)
         contentView.addSubview(artworkImageView)
+        contentView.addSubview(artistLabel)
     }
     
     private func activateArtworkConstraints() {
@@ -77,9 +86,25 @@ extension MainTableViewCell { // MARK: - Helpers
     private func activateNameLabelConstraints() {
         let leadingConstraint = nameLabel.leadingAnchor.constraint(equalTo: artworkImageView.trailingAnchor, constant: 4)
         let topConstraint = nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4)
+        let trailingConstraint = nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
+                                                                     constant: -4)
         let toActivate = [
             leadingConstraint,
-            topConstraint
+            topConstraint,
+            trailingConstraint
+        ]
+        NSLayoutConstraint.activate(toActivate)
+    }
+    
+    private func activateArtistLabelConstraints() {
+        let leadingConstraint = artistLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor)
+        let topConstraint = artistLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 4)
+        let trailingConstraint = nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
+                                                                     constant: -4)
+        let toActivate = [
+            leadingConstraint,
+            topConstraint,
+            trailingConstraint
         ]
         NSLayoutConstraint.activate(toActivate)
     }
@@ -100,5 +125,6 @@ extension MainTableViewCell { // MARK: - Helpers
         activateArtworkConstraints()
         activateNameLabelConstraints()
         activatePlayButtonConstraints()
+        activateArtistLabelConstraints()
     }
 }

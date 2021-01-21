@@ -18,4 +18,10 @@ import UIKit
     
     /// Let's play the sample track
     func playSampleButtonTapped(sender: UIButton)
+    
+    func navigateToDetails(url: URL)
+}
+
+protocol MainDependencyFactory {
+    func makeDetailsViewController(url: URL) -> DetailsViewController
 }

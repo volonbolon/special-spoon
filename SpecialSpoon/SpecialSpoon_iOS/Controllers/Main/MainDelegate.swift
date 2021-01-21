@@ -14,11 +14,20 @@ class MainDelegate: NSObject, UITableViewDelegate {
         self.model = model
     }
     
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
         if (offsetY > (contentHeight - (scrollView.frame.height * 4))) {
             model.retrieveNewPage()
         }
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
+        let searchResult = model.searchResults[indexPath.row]
+        guard let url = URL(string: searchResult.collectionViewUrl) else {
+            return
+        }
+        model.uxResponder?.navigateToDetails(url: url)
     }
 }

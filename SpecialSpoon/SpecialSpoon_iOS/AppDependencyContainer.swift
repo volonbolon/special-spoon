@@ -30,7 +30,8 @@ struct AppDependencyContainer {
         let mainViewController = MainViewController(model: model,
                                                     userInterface: mainView,
                                                     searchUseCaseFactory: self,
-                                                    mainUseCaseFactory: self)
+                                                    mainUseCaseFactory: self,
+                                                    mainDependencyFactory: self)
         model.uxResponder = mainViewController
         let rootViewController = RootViewController(mainViewController: mainViewController)
         
@@ -54,6 +55,14 @@ struct AppDependencyContainer {
         let dismissSearchesUseCase = self.makeDismissSavedSearchesUseCase(presentingViewController: vc)
         savedSearchesDataSource.dismissSearchesUseCase = dismissSearchesUseCase
         
+        return vc
+    }
+}
+
+extension AppDependencyContainer: MainDependencyFactory {
+    func makeDetailsViewController(url: URL) -> DetailsViewController {
+        let detailsView = DetailsView(url: url)
+        let vc = DetailsViewController(userInterface: detailsView)
         return vc
     }
 }

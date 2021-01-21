@@ -14,17 +14,20 @@ class MainViewController: NiblessViewController {
     private var subscriptions = Set<AnyCancellable>()
     private let searchUseCaseFactory: SearchUseCaseUseCaseFactory
     private let mainUseCaseFactory: MainViewUseCaseFactory
+    private let mainDependencyFactory: MainDependencyFactory
     private let dataSource: UITableViewDataSource
     private let delegate: UITableViewDelegate
     
     init(model: SearchViewModel,
          userInterface: MainView,
          searchUseCaseFactory: SearchUseCaseUseCaseFactory,
-         mainUseCaseFactory: MainViewUseCaseFactory) {
+         mainUseCaseFactory: MainViewUseCaseFactory,
+         mainDependencyFactory: MainDependencyFactory) {
         self.model = model
         self.userInterface = userInterface
         self.searchUseCaseFactory = searchUseCaseFactory
         self.mainUseCaseFactory = mainUseCaseFactory
+        self.mainDependencyFactory = mainDependencyFactory
         
         guard let ds = userInterface.dataSource,
               let del = userInterface.delegate else {
@@ -97,6 +100,11 @@ extension MainViewController { // MARK: - Helpers
 }
 
 extension MainViewController: MainUXResponder {
+    func navigateToDetails(url: URL) {
+        let detailsViewController = mainDependencyFactory.makeDetailsViewController(url: url)
+        self.navigationController?.pushViewController(detailsViewController, animated: true)
+    }
+    
     func presentNewSearch() {
         let useCase = searchUseCaseFactory.makeSearchUseCase(model: model,
                                                              presentingViewController: self)

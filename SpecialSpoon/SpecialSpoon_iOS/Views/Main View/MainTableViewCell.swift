@@ -29,7 +29,7 @@ class MainTableViewCell: UITableViewCell {
     public override func willMove(toWindow newWindow: UIWindow?) {
         super.willMove(toWindow: window)
         
-        guard hierarchyNotReady else {
+        guard hierarchyNotReady, newWindow != nil else {
             return
         }
         

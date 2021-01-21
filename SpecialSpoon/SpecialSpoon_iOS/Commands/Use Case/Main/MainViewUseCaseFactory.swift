@@ -5,7 +5,7 @@
 //  Created by Ariel Rodriguez on 20/01/2021.
 //
 
-import Foundation
+import UIKit
 import AVFoundation
 
 class PlaySampleUseCase: UseCase {

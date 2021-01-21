@@ -9,9 +9,11 @@ import UIKit
 
 class MainDataSource: NSObject, UITableViewDataSource {
     private let model: SearchViewModel
+    private let imageCache: NSCache<NSString, UIImage>
     
     init(model: SearchViewModel) {
         self.model = model
+        self.imageCache = NSCache()
         
         super.init()
     }
@@ -34,6 +36,20 @@ class MainDataSource: NSObject, UITableViewDataSource {
             mainCell.playButton.addTarget(model.uxResponder,
                                           action: #selector(MainUXResponder.playSampleButtonTapped(sender:)),
                                           for: .touchUpInside)
+            if let cachedImage = imageCache.object(forKey: searchResult.artworkUrl100 as NSString) {
+                mainCell.artworkImageView.image = cachedImage
+            } else {
+                if let url = URL(string: searchResult.artworkUrl100) {
+                    UIImage.imageFromURL(url) { (image) in
+                        if let image = image {
+                            self.imageCache.setObject(image, forKey: searchResult.artworkUrl100 as NSString)
+                        }
+                        if let cell = tableView.cellForRow(at: indexPath) as? MainTableViewCell {
+                            cell.artworkImageView.image = image
+                        }
+                    }
+                }
+            }
         }
         
         return cell

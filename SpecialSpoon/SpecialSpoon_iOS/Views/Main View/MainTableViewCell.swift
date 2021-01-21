@@ -17,6 +17,12 @@ class MainTableViewCell: UITableViewCell {
         return label
     }()
     
+    var artworkImageView: UIImageView = {
+        let imageView = UIImageView(frame: .zero)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     var playButton: UIButton = {
         let button = UIButton(frame: .zero)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -44,10 +50,32 @@ extension MainTableViewCell { // MARK: - Helpers
     private func constructHierarchy() {
         contentView.addSubview(nameLabel)
         contentView.addSubview(playButton)
+        contentView.addSubview(artworkImageView)
+    }
+    
+    private func activateArtworkConstraints() {
+        let leadingConstraint = artworkImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
+                                                                          constant: 4)
+        let topConstraint = artworkImageView.topAnchor.constraint(equalTo: contentView.topAnchor,
+                                                                  constant: 4)
+        let bottomConstraint = artworkImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,
+                                                                        constant: -4)
+        bottomConstraint.priority = .defaultHigh
+        let heightConstraint = artworkImageView.heightAnchor.constraint(equalToConstant: 100)
+        let widthConstraint = artworkImageView.widthAnchor.constraint(equalToConstant: 100)
+        
+        let toActivate = [
+            leadingConstraint,
+            topConstraint,
+            bottomConstraint,
+            heightConstraint,
+            widthConstraint
+        ]
+        NSLayoutConstraint.activate(toActivate)
     }
     
     private func activateNameLabelConstraints() {
-        let leadingConstraint = nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 4)
+        let leadingConstraint = nameLabel.leadingAnchor.constraint(equalTo: artworkImageView.trailingAnchor, constant: 4)
         let topConstraint = nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4)
         let toActivate = [
             leadingConstraint,
@@ -57,13 +85,11 @@ extension MainTableViewCell { // MARK: - Helpers
     }
     
     private func activatePlayButtonConstraints() {
-        let centerXConstraint = playButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
-        let topConstraint = playButton.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 4)
+        let trailingConstraint = playButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -4)
         let bottomConstraint = playButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -4)
         
         let toActivate = [
-            centerXConstraint,
-            topConstraint,
+            trailingConstraint,
             bottomConstraint
         ]
         
@@ -71,6 +97,7 @@ extension MainTableViewCell { // MARK: - Helpers
     }
     
     private func activateConstraints() {
+        activateArtworkConstraints()
         activateNameLabelConstraints()
         activatePlayButtonConstraints()
     }

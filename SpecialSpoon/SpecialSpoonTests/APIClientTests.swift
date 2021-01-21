@@ -14,9 +14,12 @@ struct APIManagerMock: APIClient {
     func searchForTerm(_ term: String,
                        offset: Int,
                        pageSize: Int) -> AnyPublisher<[SearchResult], APIClientError> {
-        let searchResult = SearchResult(id: 308345539,
+        let searchResult = SearchResult(trackId: 308345539,
                                         trackName: "In utero",
-                                        previewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/Music/b9/6d/cc/mzm.ydaoahqv.aac.p.m4a", collectionViewUrl: "https://music.apple.com/us/album/in-utero/308345440?i=308345539&uo=4")
+                                        previewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/Music/b9/6d/cc/mzm.ydaoahqv.aac.p.m4a",
+                                        collectionViewUrl: "https://music.apple.com/us/album/in-utero/308345440?i=308345539&uo=4",
+                                        artistName: "Kells",
+                                        collectionName: "Lueurs", artworkUrl100: "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/17/58/d8/1758d85c-ce46-e742-8a70-bf4711b37629/source/100x100bb.jpg")
         
         return Just([searchResult])
             .setFailureType(to: APIClientError.self)

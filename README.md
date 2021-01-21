@@ -11,3 +11,11 @@ As for the vies themselves, i am not using xibs, neither storyboards. They tend 
 
 ## Protocols
 I use them as much as possible. By declaring interfaces that way, is easier to replace components with mocks for tests, or new components in production.
+
+## Structure
+The code base is roughly divided in 4 sections, each one encapsulating different functionalities. They can be easily transformed in frameworks, or even packages to speed up compile time. It is also easier to swap them for different platforms. We can, for instance, replace the iOS module with one for the watch, and because we are only exposing protocols, the core module doesn't need to be touched at all. 
+
+* SpecialSpoon: Main section of the app. Here we have the delegates (Scene and App Delegate). From here we can boot thir party engines. 
+* SpecialSpoon_iOS: Here we have all iOS related code. This is the module that knows how to deal with a UIViewController, iOS way
+* SpecialSpoonUIKit: Abstraction over UIKit. We are a little bit further than iOS, but still in UIKit.
+* SpecialSpoonKit: Core functionaly. Completely agnostic about the platform (works on top of Foundation). 

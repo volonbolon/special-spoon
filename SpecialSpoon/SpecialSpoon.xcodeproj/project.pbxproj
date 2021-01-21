@@ -15,6 +15,9 @@
 		79B11F2825B8EA5100295C6B /* MainDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B11F2725B8EA5100295C6B /* MainDelegate.swift */; };
 		79B11F2D25B8ED2200295C6B /* MainUXResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B11F2C25B8ED2200295C6B /* MainUXResponder.swift */; };
 		79B11F3425B8EFF200295C6B /* MainViewUseCaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B11F3325B8EFF200295C6B /* MainViewUseCaseFactory.swift */; };
+		79B11F3A25B8F5FD00295C6B /* SavedSearchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B11F3925B8F5FD00295C6B /* SavedSearchesViewController.swift */; };
+		79B11F3E25B8F63100295C6B /* SavedSearchesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B11F3D25B8F63100295C6B /* SavedSearchesTableView.swift */; };
+		79B11F4325B8F67E00295C6B /* SavedSearchesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B11F4225B8F67E00295C6B /* SavedSearchesDataSource.swift */; };
 		79B11F4A25B8F91D00295C6B /* LocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B11F4925B8F91D00295C6B /* LocalRepository.swift */; };
 		79B11F5025B908FB00295C6B /* SavedSearchLocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B11F4F25B908FB00295C6B /* SavedSearchLocalRepository.swift */; };
 		79CE4D5225B8C17D009DD899 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CE4D5125B8C17D009DD899 /* SearchViewModel.swift */; };
@@ -79,6 +82,9 @@
 		79B11F2725B8EA5100295C6B /* MainDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDelegate.swift; sourceTree = "<group>"; };
 		79B11F2C25B8ED2200295C6B /* MainUXResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUXResponder.swift; sourceTree = "<group>"; };
 		79B11F3325B8EFF200295C6B /* MainViewUseCaseFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewUseCaseFactory.swift; sourceTree = "<group>"; };
+		79B11F3925B8F5FD00295C6B /* SavedSearchesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedSearchesViewController.swift; sourceTree = "<group>"; };
+		79B11F3D25B8F63100295C6B /* SavedSearchesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedSearchesTableView.swift; sourceTree = "<group>"; };
+		79B11F4225B8F67E00295C6B /* SavedSearchesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedSearchesDataSource.swift; sourceTree = "<group>"; };
 		79B11F4925B8F91D00295C6B /* LocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalRepository.swift; sourceTree = "<group>"; };
 		79B11F4F25B908FB00295C6B /* SavedSearchLocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedSearchLocalRepository.swift; sourceTree = "<group>"; };
 		79CE4D5125B8C17D009DD899 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
@@ -163,6 +169,7 @@
 			children = (
 				79F0021F25B8BB6000613136 /* MainView.swift */,
 				79B11F1B25B8E88400295C6B /* MainTableViewCell.swift */,
+				79B11F3D25B8F63100295C6B /* SavedSearchesTableView.swift */,
 			);
 			path = "Main View";
 			sourceTree = "<group>";
@@ -170,6 +177,7 @@
 		79B11F1F25B8E97200295C6B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				79B11F4125B8F67200295C6B /* Saved Searches */,
 				79B11F2025B8E9AB00295C6B /* Main */,
 			);
 			path = Controllers;
@@ -198,6 +206,14 @@
 				79B11F3325B8EFF200295C6B /* MainViewUseCaseFactory.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		79B11F4125B8F67200295C6B /* Saved Searches */ = {
+			isa = PBXGroup;
+			children = (
+				79B11F4225B8F67E00295C6B /* SavedSearchesDataSource.swift */,
+			);
+			path = "Saved Searches";
 			sourceTree = "<group>";
 		};
 		79B11F4825B8F90800295C6B /* Storage */ = {
@@ -377,6 +393,7 @@
 			children = (
 				79F0020C25B8BA9000613136 /* RootViewController.swift */,
 				79F0021925B8BAF800613136 /* MainViewController.swift */,
+				79B11F3925B8F5FD00295C6B /* SavedSearchesViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -523,14 +540,17 @@
 				79B11F4A25B8F91D00295C6B /* LocalRepository.swift in Sources */,
 				79B11F5025B908FB00295C6B /* SavedSearchLocalRepository.swift in Sources */,
 				79F001FF25B8BA0200613136 /* NiblessViewController.swift in Sources */,
+				79B11F4325B8F67E00295C6B /* SavedSearchesDataSource.swift in Sources */,
 				79B11F2D25B8ED2200295C6B /* MainUXResponder.swift in Sources */,
 				79B11F1725B8E85000295C6B /* NiblessTableView.swift in Sources */,
 				79F0020D25B8BA9000613136 /* RootViewController.swift in Sources */,
 				79B11F3425B8EFF200295C6B /* MainViewUseCaseFactory.swift in Sources */,
+				79B11F3A25B8F5FD00295C6B /* SavedSearchesViewController.swift in Sources */,
 				79B11F1C25B8E88400295C6B /* MainTableViewCell.swift in Sources */,
 				79B11F2825B8EA5100295C6B /* MainDelegate.swift in Sources */,
 				79B11F1325B8E2D200295C6B /* SearchUseCase.swift in Sources */,
 				79CE4D5825B8C257009DD899 /* APIClient.swift in Sources */,
+				79B11F3E25B8F63100295C6B /* SavedSearchesTableView.swift in Sources */,
 				79F0020725B8BA1900613136 /* NiblessView.swift in Sources */,
 				79CE4D5225B8C17D009DD899 /* SearchViewModel.swift in Sources */,
 				79CE4D6325B8C56C009DD899 /* iTunesAPIClient.swift in Sources */,

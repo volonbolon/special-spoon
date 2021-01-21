@@ -60,7 +60,7 @@ extension MainViewController { // MARK: - Helpers
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: historyTitle,
                                                            style: .plain,
                                                            target: self,
-                                                           action: #selector(presentNewSearch))
+                                                           action: #selector(presentSavedSearches))
     }
     
     
@@ -104,7 +104,9 @@ extension MainViewController: MainUXResponder {
     }
     
     func presentSavedSearches() {
-        
+        let useCase = searchUseCaseFactory.makePresentSavedSearchesUseCase(model: model,
+                                                                           presentingViewController: self)
+        useCase.start()
     }
     
     func playSampleButtonTapped(sender: UIButton) {

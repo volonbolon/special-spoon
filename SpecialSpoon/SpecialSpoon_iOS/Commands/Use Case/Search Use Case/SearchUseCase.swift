@@ -45,7 +45,41 @@ class SearchUseCase: UseCase {
     }
 }
 
+class DismissSavedSearchesUseCase: UseCase {
+    let presentingViewController: UIViewController
+    
+    init(presentingViewController: UIViewController) {
+        self.presentingViewController = presentingViewController
+    }
+    
+    public func start() {
+        presentingViewController.dismiss(animated: true, completion: nil)
+    }
+}
+
+class PresentSavedSearchesUseCase: UseCase {
+    let presentingViewController: UIViewController
+    let model: SearchViewModel
+    
+    init(model: SearchViewModel,
+         presentingViewController: UIViewController) {
+        self.model = model
+        self.presentingViewController = presentingViewController
+    }
+    
+    public func start() {
+        let dep = AppDependencyContainer()
+        let savedSearches = dep.makeSavedSearchesViewController(model: model)
+        savedSearches.modalPresentationStyle = .pageSheet
+        savedSearches.modalTransitionStyle = .coverVertical
+        presentingViewController.present(savedSearches, animated: true, completion: nil)
+    }
+}
+
 protocol SearchUseCaseUseCaseFactory {
     func makeSearchUseCase(model: SearchViewModel,
                            presentingViewController: UIViewController) -> UseCase
+    func makePresentSavedSearchesUseCase(model: SearchViewModel,
+                                         presentingViewController: UIViewController) -> UseCase
+    func makeDismissSavedSearchesUseCase(presentingViewController: UIViewController) -> UseCase
 }

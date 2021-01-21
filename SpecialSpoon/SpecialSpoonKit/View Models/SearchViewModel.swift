@@ -26,6 +26,9 @@ class SearchViewModel: ObservableObject {
         self.apiClient = apiClient
     }
     
+    
+    /// Resets the internal state and start a new search
+    /// - Parameter term: a string used to query the API
     func searchForTerm(_ term: String) {
         searchTerm = term
         offset = 0
@@ -36,6 +39,8 @@ class SearchViewModel: ObservableObject {
         retrieveNewPage()
     }
     
+    
+    /// Performs the actual call to the API
     func retrieveNewPage() {
         guard let term = searchTerm else {
             return
@@ -60,6 +65,14 @@ class SearchViewModel: ObservableObject {
                 self.error = nil
             }
             .store(in: &subscriptions)
+    }
+    
+    
+    /// Populates the internal results store with content provided by the caller
+    /// - Parameter results: An array of search results
+    func useSavedSearch(results: [SearchResult]) {
+        self.error = nil
+        self.searchResults = results
     }
 }
 

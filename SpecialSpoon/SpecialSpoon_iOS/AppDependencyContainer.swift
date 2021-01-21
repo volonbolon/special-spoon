@@ -51,9 +51,8 @@ struct AppDependencyContainer {
         
         let vc = SavedSearchesViewController(userInterface: userInterface)
         
-//        let dismissSearchesUseCase = self.makeDismissSavedSearchesUseCase(presentingViewController: vc)
-        
-//        savedSearchesDataSource.dismissSearchesUseCase = dismissSearchesUseCase
+        let dismissSearchesUseCase = self.makeDismissSavedSearchesUseCase(presentingViewController: vc)
+        savedSearchesDataSource.dismissSearchesUseCase = dismissSearchesUseCase
         
         return vc
     }

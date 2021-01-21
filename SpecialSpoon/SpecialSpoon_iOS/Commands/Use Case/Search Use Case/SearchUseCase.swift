@@ -21,6 +21,7 @@ class SearchUseCase: UseCase {
         let title = NSLocalizedString("Search for new music", comment: "Search for new music")
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         alert.addTextField { (textField) in
+            textField.accessibilityLabel = "search for term"
             textField.placeholder = NSLocalizedString("Search", comment: "Search")
         }
         let cancelTitle = NSLocalizedString("Cancel", comment: "Cancel")

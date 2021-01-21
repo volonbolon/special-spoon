@@ -12,6 +12,25 @@ struct AppDependencyContainer {
     /// we can customise at this point the client we want to use
     /// for testing purposes, we can inject a mock, for instance.
     var remoteAPI: APIClient {
+        #if DEBUG
+        if CommandLine.arguments.contains("--uitesting") {
+            guard let path = Bundle.main.path(forResource: "results",
+                                              ofType: "json") else {
+                return iTunesAPIClient()
+            }
+            let url = URL(fileURLWithPath: path)
+            do {
+                
+                let data = try Data(contentsOf: url)
+                let payload = try JSONDecoder().decode(Results.self,
+                                     from: data)
+                return MockAPIClient(results: payload.results)
+            } catch {
+                print(error)
+            }
+        }
+        #endif
+        
         return iTunesAPIClient()
     }
     

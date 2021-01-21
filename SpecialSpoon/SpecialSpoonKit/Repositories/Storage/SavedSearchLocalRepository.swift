@@ -8,7 +8,7 @@
 import Foundation
 import VolonbolonKit
 
-struct SavedSearchPool: LocalRepository {
+struct SavedSearchLocalRepository: LocalRepository {
     static let fileName = "savedSearch"
     
     func saveSearch(savedSearch: [SearchResult], term: String) {
@@ -17,7 +17,7 @@ struct SavedSearchPool: LocalRepository {
         
         do {
             try VolonbolonKit.FileIOHelper.save(value: saved,
-                                                named: SavedSearchPool.fileName)
+                                                named: SavedSearchLocalRepository.fileName)
         } catch {
             print(error)
         }
@@ -26,7 +26,7 @@ struct SavedSearchPool: LocalRepository {
     func retrieveSavedSearches() -> [String: [SearchResult]] {
         let saved: [String: [SearchResult]]
         do {
-            saved = try VolonbolonKit.FileIOHelper.loadValue(named: SavedSearchPool.fileName)
+            saved = try VolonbolonKit.FileIOHelper.loadValue(named: SavedSearchLocalRepository.fileName)
         } catch let error as NSError {
             if error.code != 260 { // No file already saved
                 print(error)

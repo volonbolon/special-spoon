@@ -15,7 +15,7 @@ struct AppDependencyContainer {
     }
     
     var makeSavedSearchPool: LocalRepository {
-        return SavedSearchPool()
+        return SavedSearchLocalRepository()
     }
     
     /// This is the root view controller. We start the application here

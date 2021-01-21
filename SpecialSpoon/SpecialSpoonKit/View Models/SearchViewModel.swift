@@ -16,14 +16,17 @@ class SearchViewModel: ObservableObject {
     @Published var searchResults: [SearchResult] = []
     @Published var receivingPage = false
     
+    private let localStore: LocalRepository
     private var expectMorePages = true
     private var searchTerm: String?
     private var subscriptions = Set<AnyCancellable>()
     private let apiClient: APIClient
     private var offset = 0
     
-    init(apiClient: APIClient = iTunesAPIClient()) {
+    init(apiClient: APIClient = iTunesAPIClient(),
+         localStore: LocalRepository = SavedSearchLocalRepository()) {
         self.apiClient = apiClient
+        self.localStore = localStore
     }
     
     
@@ -63,6 +66,10 @@ class SearchViewModel: ObservableObject {
                 self.searchResults += results
                 self.offset += resultsCount
                 self.error = nil
+                
+                // Saving the results in a local store
+                self.localStore.saveSearch(savedSearch: self.searchResults,
+                                           term: term)
             }
             .store(in: &subscriptions)
     }
